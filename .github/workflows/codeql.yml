@@ -28,7 +28,7 @@ jobs:
 
     - name: Compile CoffeeScript to JavaScript
       run: |
-        coffee --compile --map test.coffee
+        coffee --compile --map *.coffee
         
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
