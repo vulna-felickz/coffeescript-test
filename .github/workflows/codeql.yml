@@ -1,6 +1,6 @@
 name: Compile and Analyze CoffeeScript with CodeQL
 
-on: workflow_dispatch
+on: ['push','workflow_dispatch']
 
 jobs:
   build:
@@ -46,6 +46,12 @@ jobs:
         output: sarif-results
         add-snippets: true
 
+    - name: Upload CodeQL Analysis
+      uses: actions/upload-artifact@v3
+      with:
+        name: before-javascript.sarif
+        path: sarif-results/javascript.sarif
+
     - name: Remap SARIF
       uses: advanced-security/remap-sarif@main
       with:
@@ -57,3 +63,9 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: sarif-results/javascript.sarif
+
+    - name: Upload CodeQL Analysis
+      uses: actions/upload-artifact@v3
+      with:
+        name: after-javascript.sarif
+        path: sarif-results/javascript.sarif
