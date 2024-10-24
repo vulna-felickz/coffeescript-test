@@ -38,3 +38,6 @@ executeCommand = (userInput) ->
 # Example usage:
 userInput = "ls -la"
 executeCommand(userInput)
+
+# Client side url redirect
+window.location = /.*redirect=([^&]*).*/.exec(document.location.href)[1]
