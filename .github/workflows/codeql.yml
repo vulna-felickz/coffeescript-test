@@ -44,6 +44,7 @@ jobs:
       with:
         upload: False
         output: sarif-results
+        add-snippets: true
 
     - name: Remap SARIF
       uses: advanced-security/remap-sarif@main
