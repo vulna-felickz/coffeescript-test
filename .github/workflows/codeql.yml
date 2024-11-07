@@ -30,6 +30,12 @@ jobs:
       run: |
         coffee --compile --map *.coffee
 
+    - name: Upload JS Maps
+      uses: actions/upload-artifact@v3
+      with:
+        name: JS-Map
+        path: '*.js.map'
+
     - name: inspect directory
       run: | 
         ls -ls
@@ -44,7 +50,7 @@ jobs:
       with:
         upload: False
         output: sarif-results
-        add-snippets: true
+        #deprecated -> add-snippets: true
 
     - name: Upload CodeQL Analysis
       uses: actions/upload-artifact@v3
