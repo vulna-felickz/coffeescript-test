@@ -61,7 +61,7 @@ jobs:
     - name: Remap SARIF
       uses: advanced-security/remap-sarif@main
       with:
-        sourceroot: src   # optional
+        #sourceroot: src   # optional
         input: sarif-results/javascript.sarif
         output: sarif-results/javascript.sarif
       
